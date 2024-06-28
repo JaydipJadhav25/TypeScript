@@ -146,13 +146,129 @@ class demo2 {
     
        }
     //    const call = demo2.myfunction(); error
-    // demo2.myfunction(); error 
+    // demo2.myfunction(); error    
+}
 
+//mearing
+
+interface Books{
+    name: string;
+
+}
+
+interface Books{
+     price : number
     
 }
 
+const books : Books ={
+    name : "dembook",
+    price : 11001
+}
+
+
+type ID1 = number | string;
+
+
+function printid(id:any){
+
+ if(typeof id === "string"){
+    console.log("id : ", id.toUpperCase());
+ }
+ console.log("id : ", id);
+
+}
+
+printid("1");
+printid(2);
+
+
+//
+function getfirstThree(x : string | number[]){
+    return x.slice(0 , 3);
+}
+
+
+console.log(getfirstThree("hello"))
+console.log(getfirstThree([1,2,233,4]))
+
+
+console.log("Genrics...")
+
+function logAnyThing<t>(x:t){
+    console.log(x)
+    return x;
+}
+
+logAnyThing(2);
+logAnyThing("A");
+logAnyThing([1,2,3,3])
 
 
 
+console.log("structural typing or Duck typing..")
+
+interface Users{
+    name :string,
+    age :number
+}
+
+
+function userInfo(user : Users) : boolean{
+    console.log("user info : " , user)
+    return true
+}
+
+const  olduser = {
+    name : "jaydip",
+    age : 20
+}
+userInfo(olduser)
+
+const olduser2 : Users  = {
+    name : "don",
+    age : 20
+    
+}
+userInfo(olduser2)
+
+
+
+interface Iauth{
+    username : string;
+    passwrod : string;
+    login(id : string , pass : string) : boolean;
+}
+const userlogin : Iauth = {
+    username: " don",
+    passwrod : "11111",
+    login(id : string , pass : string) : boolean{
+        console.log(`id ${id} and pass ${pass}`)
+        return true;
+    }
+}
+console.log("login function : " ,userlogin.login("jaydip" , "jaydip122"))
+
+
+//union
+const id : number = 10;
+type id = number;
+
+//improt class
+
+import democlass from "./class"
+import {Userpayload} from "./class"
+// const class = require("./class")
+ const myuserpayload : Userpayload ={
+    name : "jay",
+    age : 10
+ }
+democlass.main(myuserpayload);
+democlass.main({name : "jaydip" , age : 10});
+const user2  = {
+    name : "ram",
+    age : 20
+}
+democlass.main(user2);
 
 
